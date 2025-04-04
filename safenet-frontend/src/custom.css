@@ -1,0 +1,603 @@
+/* src/custom.css */
+
+/* Import modern fonts: Outfit for headings, Space Grotesk for body text */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+/* Reset and base styling */
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #0f0f13;
+  background-image: 
+    linear-gradient(125deg, rgba(76, 0, 255, 0.05) 0%, rgba(0, 0, 0, 0) 70%),
+    linear-gradient(45deg, rgba(0, 217, 255, 0.05) 0%, rgba(0, 0, 0, 0) 70%),
+    url('https://www.toptal.com/designers/subtlepatterns/patterns/dark_wall.png');
+  background-blend-mode: normal, screen;
+  color: #f0f0ff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Neon border mixin (can be applied to various elements) */
+.neon-border {
+  border: 5px solid rgba(76, 0, 255, 0.1);
+  box-shadow: 0 0 8px rgba(76, 0, 255, 0.5), 
+              inset 0 0 8px rgba(76, 0, 255, 0.3);
+}
+
+/* Enhance the navbar - glassmorphism effect */
+.navbar {
+  background: rgba(15, 15, 19, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #ffffff !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #00f5ff, #7f00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Navbar link styling */
+.navbar .nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+}
+
+.navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, #00f5ff, #7f00ff);
+  transition: width 0.3s ease;
+}
+
+.navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar .nav-link:hover {
+  color: #7f00ff !important;
+}
+
+/* Landing Page styling - 3D layered effect */
+.landing-container {
+  background: rgba(15, 15, 19, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 0 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(76, 0, 255, 0.1) 0%, rgba(15, 15, 19, 0) 70%);
+  z-index: -1;
+  animation: pulse 15s infinite alternate;
+}
+
+.landing-container h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, #00f5ff, #7f00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.landing-container p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  color: #b8b8ff;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Animated gradient button */
+.btn-custom {
+  background: linear-gradient(-45deg, #00f5ff, #7f00ff, #ff00c8, #7f00ff);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+  color: #fff;
+  border: none;
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(127, 0, 255, 0.4);
+}
+
+.btn-custom:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px rgba(127, 0, 255, 0.5);
+}
+
+.btn-custom:active {
+  transform: translateY(1px);
+}
+
+/* Result box with cyberpunk styling */
+.result-box {
+  background: rgba(15, 15, 19, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(76, 0, 255, 0.3);
+  box-shadow: 0 0 15px rgba(76, 0, 255, 0.3),
+              inset 0 0 8px rgba(76, 0, 255, 0.2);
+  animation: fadeIn 0.5s ease-in-out;
+  position: relative;
+}
+
+.result-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+              rgba(76, 0, 255, 0) 0%, 
+              rgba(76, 0, 255, 0.05) 50%, 
+              rgba(76, 0, 255, 0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Neon text headings */
+h2, h3, h4 {
+  font-family: 'Outfit', sans-serif;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after, h3::after, h4::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #00f5ff, #7f00ff);
+}
+
+/* Modern futuristic loader */
+.loader {
+  margin: 2rem auto;
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.loader::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #00f5ff;
+  border-bottom-color: #7f00ff;
+  animation: spin 1.5s linear infinite;
+}
+
+.loader::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-left-color: #ff00c8;
+  border-right-color: #7f00ff;
+  animation: spin 1s linear infinite reverse;
+}
+
+/* IMPROVED Form styling with lighter backgrounds and distinct white borders */
+.form-control, input[type="text"], input[type="email"], input[type="password"], input[type="number"], select {
+  background-color: rgba(30, 30, 45, 0.5); /* Lighter background */
+  border: 2px solid rgba(255, 255, 255, 0.8); /* Bright white border */
+  color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  font-family: 'Space Grotesk', sans-serif;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15); /* White glow */
+}
+
+.form-control:focus, 
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="password"]:focus,
+input[type="number"]:focus,
+select:focus {
+  background-color: rgba(40, 40, 55, 0.7); /* Slightly darker when focused for contrast */
+  border-color: #00f5ff; /* Bright cyan highlight when focused */
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.4); /* Brighter cyan glow on focus */
+  color: #ffffff;
+  outline: none;
+}
+
+.form-control::placeholder, 
+input::placeholder, 
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6); /* Brighter placeholder text */
+}
+
+.form-container {
+  background: rgba(15, 15, 19, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 1px solid rgba(76, 0, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  border: none;
+}
+
+.form-label {
+  color: #b8b8ff;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Enhanced textarea with IMPROVED WHITE BORDER and LIGHTER BACKGROUND */
+textarea {
+  background-color: rgba(30, 30, 45, 0.5); /* Lighter background */
+  border: 5px solid rgba(255, 255, 255, 0.8); /* Brighter white border */
+  color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 100%;
+  height: 150px;
+  resize: vertical;
+  transition: all 0.3s ease;
+  font-family: 'Space Grotesk', sans-serif;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15); /* White glow */
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+textarea:focus {
+  background-color: rgba(40, 40, 55, 0.7); /* Slightly darker when focused for contrast */
+  border-color: #00f5ff; /* Bright cyan highlight when focused */
+  box-shadow: 0 0 15px rgba(0, 245, 255, 0.4); /* Brighter cyan glow on focus */
+  outline: none;
+}
+
+/* Special styling for login/register forms */
+.auth-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(20, 20, 30, 0.7);
+  border-radius: 1rem;
+  border: 7px solid rgba(76, 0, 255, 0.2);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4),
+              0 0 15px rgba(76, 0, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.auth-form .btn-custom {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* Classifier specific form styling */
+.classifier-form textarea {
+  min-height: 180px;
+  margin-bottom: 1.5rem;
+}
+
+/* Checkbox and radio styling */
+input[type="checkbox"], input[type="radio"] {
+  position: relative;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.5rem;
+  background-color: rgba(30, 30, 45, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 0.25rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: all 0.3s ease;
+  vertical-align: middle;
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+}
+
+input[type="checkbox"]:checked, input[type="radio"]:checked {
+  background-color: #7f00ff;
+  border-color: #00f5ff;
+  box-shadow: 0 0 10px rgba(127, 0, 255, 0.5);
+}
+
+input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 0.8rem;
+}
+
+input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* Enhanced Table Styling for History Page */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  background: rgba(15, 15, 19, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+table thead {
+  background: linear-gradient(90deg, rgba(76, 0, 255, 0.3), rgba(0, 245, 255, 0.3));
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+table th {
+  padding: 1.2rem 1rem;
+  text-align: left;
+  position: relative;
+  border-bottom: 2px solid rgba(127, 0, 255, 0.5);
+}
+
+table th::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.5), transparent);
+}
+
+table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f0f0ff;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+table tbody tr {
+  transition: all 0.3s ease;
+}
+
+table tbody tr:hover {
+  background: rgba(76, 0, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Zebra striping for better readability */
+table tbody tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+table tbody tr:nth-child(odd):hover {
+  background: rgba(76, 0, 255, 0.15);
+}
+
+/* Status indicators for table if needed */
+.status-indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-success {
+  background: linear-gradient(45deg, #00f5a0, #00f5ff);
+  box-shadow: 0 0 8px rgba(0, 245, 160, 0.6);
+}
+
+.status-pending {
+  background: linear-gradient(45deg, #f5a700, #ff7700);
+  box-shadow: 0 0 8px rgba(245, 167, 0, 0.6);
+}
+
+.status-error {
+  background: linear-gradient(45deg, #ff0066, #ff00c8);
+  box-shadow: 0 0 8px rgba(255, 0, 102, 0.6);
+}
+
+/* Timestamp styling */
+.timestamp {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Table action buttons */
+.table-action-btn {
+  background: rgba(76, 0, 255, 0.2);
+  border: 1px solid rgba(76, 0, 255, 0.3);
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  margin-right: 0.5rem;
+}
+
+.table-action-btn:hover {
+  background: rgba(76, 0, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(76, 0, 255, 0.3);
+}
+
+/* Empty state for tables */
+.table-empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.table-empty-state svg {
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+/* Mobile responsive table */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  table th, table td {
+    padding: 0.8rem;
+  }
+  
+  .landing-container h1 {
+    font-size: 2.5rem;
+  }
+  
+  .landing-container p {
+    font-size: 1rem;
+  }
+  
+  .btn-custom {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.3; }
+  100% { transform: scale(1.1); opacity: 0.1; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 15, 19, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f5ff, #7f00ff);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00f5ff, #ff00c8);
+}
