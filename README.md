@@ -16,7 +16,7 @@ SafeNet is a powerful AI-driven solution designed to detect and classify harmful
 📦 SafeNet
 ├── 📁 safenet-api                # Backend API for text & image classification
 ├── 📁 extension          # Browser extension for real-time moderation
-├── 📁 safenet0frontend       # Web-based UI for SafeNet platform
+├── 📁 safenet-frontend       # Web-based UI for SafeNet platform
 ├── 📄 README.md          # Project documentation (You're here!)
 ```
 
