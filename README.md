@@ -28,8 +28,8 @@ SafeNet is a powerful AI-driven solution designed to detect and classify harmful
 
 #### Prerequisites:
 - Python 3.8+
-- FastAPI
-- TensorFlow & Google Gemini API
+- Flask API
+- TensorFlow
 
 #### Installation:
 ```sh
@@ -39,7 +39,7 @@ uvicorn main:app --reload
 ```
 
 #### Running the API:
-- The API runs at `http://127.0.0.1:8000`
+- The API runs at `http://127.0.0.1:5000`
 - Endpoints:
   - `/predict-text` – Classifies input text
   - `/predict-image` – Analyzes uploaded images
@@ -73,7 +73,7 @@ npm run dev
 ---
 
 ## 🛠 Tech Stack
-- **Backend:** FastAPI, TensorFlow, Google Gemini API
+- **Backend:** Flask API, TensorFlow
 - **Frontend:** React.js, Tailwind CSS
 - **Hosting:** Docker, Railway(backend-api), vercel(frontend)
 
