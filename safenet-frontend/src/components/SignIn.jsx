@@ -2,6 +2,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import HelpButton from './HelpButton';
 
 const SignIn = () => {
   const [username, setUsername] = useState('');
@@ -49,6 +50,7 @@ const SignIn = () => {
         </div>
         <button type="submit" className="btn btn-custom">Sign In</button>
       </form>
+      <HelpButton message="&nbsp; Sign Up first if you dont have a account &nbsp;" />
     </div>
   );
 };
